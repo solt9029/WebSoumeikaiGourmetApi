@@ -1,0 +1,19 @@
+version: '2'
+
+services:
+  php:
+    build: ./docker/php
+    ports:
+      - "8050:80"
+    volumes:
+      - .:/php
+    depends_on:
+      - mysql
+  mysql:
+    build: ./docker/mysql
+    volumes:
+      - ./docker/mysql:/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=phpapptest
+      - MYSQL_DATABASE=soumeikai
+    tty: true
