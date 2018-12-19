@@ -83,7 +83,7 @@ class ShopsController extends Controller
 
         $grid->id('Id');
         $grid->name('Name');
-        $grid->img('Img');
+        $grid->img('Img')->image();
         $grid->category('Category');
         $grid->phone_number('Phone number');
         $grid->address('Address');

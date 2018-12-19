@@ -26,5 +26,7 @@ docker-compose exec php bash
 ```
 cp .env.example .env
 php artisan key:generate
+php artisan admin:install
 php artisan migrate
+php artisan storage:link
 ```
