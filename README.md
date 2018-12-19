@@ -21,12 +21,16 @@ APIコンテナに入るためには以下のコマンドを打ちます。
 docker-compose exec php bash
 ```
 
-環境設定、マイグレーションは以下のコマンドを打ちます。
+環境設定、マイグレーションなどは以下のコマンドを打ちます。
 
 ```
+chmod 777 ./storage/
+chmod 777 ./bootstrap/cache/
 cp .env.example .env
 php artisan key:generate
 php artisan admin:install
-php artisan migrate
+# php artisan migrate
 php artisan storage:link
+cd ./storage/app/public
+git clone https://github.com/solt9029/WebSoumeikaiGourmetApiShopImages images
 ```
