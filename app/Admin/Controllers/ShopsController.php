@@ -136,19 +136,19 @@ class ShopsController extends Controller
     {
         $form = new Form(new Shop);
 
-        $form->text('name', 'Name');
-        $form->image('img', 'Img');
-        $form->text('category', 'Category');
-        $form->text('phone_number', 'Phone number');
-        $form->text('address', 'Address');
+        $form->text('name', 'Name (required)');
+        $form->image('img', 'Img (required)');
+        $form->text('category', 'Category (required)');
+        $form->text('phone_number', 'Phone number (required)');
+        $form->text('address', 'Address (required)');
         $form->decimal('latitude', 'Latitude');
         $form->decimal('longitude', 'Longitude');
         $form->url('link', 'Link');
         $form->text('comment', 'Comment');
-        $form->text('owner_name', 'Owner name');
-        $form->text('owner_club', 'Owner club');
-        $form->text('owner_graduated_at', 'Owner graduated at');
-        $form->text('owner_group', 'Owner group');
+        $form->text('owner_name', 'Owner name (required)');
+        $form->text('owner_club', 'Owner club (required)');
+        $form->text('owner_graduated_at', 'Owner graduated at (required)');
+        $form->text('owner_group', 'Owner group (required)');
 
         return $form;
     }
