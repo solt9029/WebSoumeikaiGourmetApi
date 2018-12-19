@@ -22,15 +22,16 @@ class CreateShopsTable extends Migration
             $table->string('category');
             $table->string('phone_number');
             $table->string('address');
-            $table->double('latitude');
-            $table->double('longitude');
-            $table->string('link');
-            $table->string('comment');
+            $table->double('latitude')->nullable();
+            $table->double('longitude')->nullable();
+            $table->string('link')->nullable();
+            $table->string('comment')->nullable();
             // owners table should be created, but I decided to use them because it's time consuming:(
             $table->string('owner_name');
             $table->string('owner_club');
             $table->string('owner_graduated_at');
             $table->string('owner_group');
+            $table->timestamps();
         });
 
         $json = File::get('database/data/shops.json');
