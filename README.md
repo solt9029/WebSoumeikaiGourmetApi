@@ -31,6 +31,5 @@ php artisan key:generate
 php artisan admin:install
 # php artisan migrate
 php artisan storage:link
-cd ./storage/app/public
-git clone https://github.com/solt9029/WebSoumeikaiGourmetApiShopImages images
+cp ./database/data/images/* ./storage/app/public/images/
 ```
