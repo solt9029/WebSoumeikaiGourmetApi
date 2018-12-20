@@ -81,20 +81,20 @@ class ShopsController extends Controller
     {
         $grid = new Grid(new Shop);
 
-        $grid->id('Id');
-        $grid->name('Name');
-        $grid->img('Img')->image();
-        $grid->category('Category');
-        $grid->phone_number('Phone number');
-        $grid->address('Address');
-        $grid->latitude('Latitude');
-        $grid->longitude('Longitude');
-        $grid->link('Link');
-        $grid->comment('Comment');
-        $grid->owner_name('Owner name');
-        $grid->owner_club('Owner club');
-        $grid->owner_graduated_at('Owner graduated at');
-        $grid->owner_group('Owner group');
+        $grid->id('ID');
+        $grid->name('お店の名前');
+        $grid->img('画像')->image();
+        $grid->category('カテゴリ');
+        $grid->phone_number('電話番号');
+        $grid->address('住所');
+        $grid->latitude('緯度');
+        $grid->longitude('経度');
+        $grid->link('食べログリンク')->limit(10);
+        $grid->comment('コメント');
+        $grid->owner_name('店主の名前');
+        $grid->owner_club('店主の所属（部活など）');
+        $grid->owner_graduated_at('店主の卒業年');
+        $grid->owner_group('店主の卒業年の会の名前');
 
         return $grid;
     }
@@ -109,20 +109,20 @@ class ShopsController extends Controller
     {
         $show = new Show(Shop::findOrFail($id));
 
-        $show->id('Id');
-        $show->name('Name');
-        $show->img('Img');
-        $show->category('Category');
-        $show->phone_number('Phone number');
-        $show->address('Address');
-        $show->latitude('Latitude');
-        $show->longitude('Longitude');
-        $show->link('Link');
-        $show->comment('Comment');
-        $show->owner_name('Owner name');
-        $show->owner_club('Owner club');
-        $show->owner_graduated_at('Owner graduated at');
-        $show->owner_group('Owner group');
+        $show->id('ID');
+        $show->name('お店の名前');
+        $show->img('画像');
+        $show->category('カテゴリ');
+        $show->phone_number('電話番号');
+        $show->address('住所');
+        $show->latitude('緯度');
+        $show->longitude('経度');
+        $show->link('食べログリンク');
+        $show->comment('コメント');
+        $show->owner_name('店主の名前');
+        $show->owner_club('店主の所属（部活など）');
+        $show->owner_graduated_at('店主の卒業年');
+        $show->owner_group('店主の卒業年の会の名前');
 
         return $show;
     }
@@ -136,19 +136,19 @@ class ShopsController extends Controller
     {
         $form = new Form(new Shop);
 
-        $form->text('name', 'Name (required)');
-        $form->image('img', 'Img (required)');
-        $form->text('category', 'Category (required)');
-        $form->text('phone_number', 'Phone number (required)');
-        $form->text('address', 'Address (required)');
-        $form->decimal('latitude', 'Latitude');
-        $form->decimal('longitude', 'Longitude');
-        $form->url('link', 'Link');
-        $form->text('comment', 'Comment');
-        $form->text('owner_name', 'Owner name (required)');
-        $form->text('owner_club', 'Owner club (required)');
-        $form->text('owner_graduated_at', 'Owner graduated at (required)');
-        $form->text('owner_group', 'Owner group (required)');
+        $form->text('name', 'お店の名前 (必須)');
+        $form->image('img', '画像 (必須)');
+        $form->text('category', 'カテゴリ (必須)');
+        $form->text('phone_number', '電話番号 (必須)');
+        $form->text('address', '住所 (必須)');
+        $form->decimal('latitude', '緯度');
+        $form->decimal('longitude', '経度');
+        $form->url('link', '食べログリンク');
+        $form->text('comment', 'コメント');
+        $form->text('owner_name', '店主の名前 (必須)');
+        $form->text('owner_club', '店主の所属（部活など） (必須)');
+        $form->text('owner_graduated_at', '店主の卒業年 (必須)');
+        $form->text('owner_group', '店主の卒業年の会の名前 (必須)');
 
         return $form;
     }
