@@ -24,7 +24,11 @@ docker-compose exec php bash
 環境設定、マイグレーションなどは以下のコマンドを打ちます。
 
 ```
-chmod 777 ./storage/
+apt-get install zip unzip git
+curl -sS https://getcomposer.org/installer | php
+mv composer.phar /usr/local/bin/composer
+composer install
+chmod -R 777 ./storage/
 chmod 777 ./bootstrap/cache/
 cp .env.example .env
 php artisan key:generate
