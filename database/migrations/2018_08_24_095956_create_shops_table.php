@@ -26,6 +26,7 @@ class CreateShopsTable extends Migration
             $table->double('longitude')->nullable();
             $table->string('link')->nullable();
             $table->string('comment')->nullable();
+            $table->string('area');
             // owners table should be created, but I decided to use them because it's time consuming:(
             $table->string('owner_name');
             $table->string('owner_club');
