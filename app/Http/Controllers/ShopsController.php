@@ -17,15 +17,20 @@ class ShopsController extends Controller
     public function index(Request $request)
     {
         $keyword = $request->input('keyword');
+        $area = $request->input('area');
         $query = Shop::query();
+
+        if ($area != null) {
+            $query->where('area', $area);
+        }
 
         $columns = ['category', 'name', 'phone_number', 'address', 'owner_name', 'owner_club', 'owner_graduated_at', 'owner_group'];
 
-        // keyword search applying to all columns
-        // （https://qiita.com/zaburo/items/fe1947ebcf530e8f3773）
-        foreach($columns as $column) {
-            $query->orWhere($column, 'like', "%{$keyword}%");
-        }
+        $query->where(function ($query) use ($columns, $keyword) {
+           foreach ($columns as $column) {
+               $query->orWhere($column, 'like', "%{$keyword}%");
+           }
+       });
 
         $shops = $query->get();
 
