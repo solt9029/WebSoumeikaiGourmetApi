@@ -87,6 +87,7 @@ class ShopsController extends Controller
         $grid->category('カテゴリ');
         $grid->phone_number('電話番号');
         $grid->address('住所');
+        $grid->area('エリア');
         $grid->latitude('緯度');
         $grid->longitude('経度');
         $grid->link('食べログリンク')->limit(10);
@@ -115,6 +116,7 @@ class ShopsController extends Controller
         $show->category('カテゴリ');
         $show->phone_number('電話番号');
         $show->address('住所');
+        $grid->area('エリア');
         $show->latitude('緯度');
         $show->longitude('経度');
         $show->link('食べログリンク');
@@ -141,6 +143,7 @@ class ShopsController extends Controller
         $form->text('category', 'カテゴリ (必須)');
         $form->text('phone_number', '電話番号 (必須)');
         $form->text('address', '住所 (必須)');
+        $form->text('area', 'エリア (必須)');
         $form->decimal('latitude', '緯度');
         $form->decimal('longitude', '経度');
         $form->url('link', '食べログリンク');
