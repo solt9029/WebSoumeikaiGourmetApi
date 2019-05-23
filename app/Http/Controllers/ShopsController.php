@@ -20,11 +20,12 @@ class ShopsController extends Controller
         $area = $request->input('area');
         $query = Shop::query();
 
-        if ($area != null) {
+        if ($area !== null) {
             $query->where('area', $area);
         }
 
         $columns = ['category', 'name', 'phone_number', 'address', 'owner_name', 'owner_club', 'owner_graduated_at', 'owner_group'];
+
 
         $query->where(function ($query) use ($columns, $keyword) {
            foreach ($columns as $column) {
