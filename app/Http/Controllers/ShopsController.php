@@ -20,7 +20,7 @@ class ShopsController extends Controller
         $area = $request->input('area');
         $query = Shop::query();
 
-        if ($area !== null) {
+        if ($area !== null && $area !== '全ての地域') {
             $query->where('area', $area);
         }
 
